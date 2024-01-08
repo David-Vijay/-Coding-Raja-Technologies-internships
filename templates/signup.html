@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}SignIn{% endblock title %}
+
+{% block content %}
+{% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                 {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+{% endfor %}
+<div class="card bg-dark p-3">
+  <form class="form" method='post' action=''>
+    {% csrf_token %}
+    
+    <h1>Register</h1>
+    <label for="email" class=" text-white ">Email</label>
+    <input type="email" name="email" id="email" class='form-control ' required placeholder="Email">
+    
+    <label for="password" class=" text-white mt-2">Password</label>
+    <input type="password" name="password" id="password" class='form-control' required placeholder="Password">
+  
+    <label for="confirm_password" class=" text-white mt-2">Confirm Password</label>
+    <input type="password" name="confirm_password" id="c-password" class='form-control' required placeholder="Confirm Password">
+  
+    <button type='submit' class='btn mt-3 btn btn-danger text-white'>Register</button><br>
+    <p class="text-white mt-2">Already User? <a href="/auth/Login">Login</a></p>
+  </form>
+</div>
+{% endblock content%}

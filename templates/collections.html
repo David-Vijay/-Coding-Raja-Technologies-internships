@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}collections
+{% endblock title %}
+{% block content %}
+<div class="container text-center mt-5" style='margin-top:10px'>
+    
+    <hr>
+    <section >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Welcome to our Collections</h1>
+            <hr style="border-color:aliceblue">
+          </div>
+          {%for item in category%}
+          <div class="col-md-4 col-lg-3" >
+            <a href="{%url 'collections' item.name%}">
+            <div class="card my-3">
+              <img src="{{item.image.url}}" alt="categories" class="card-image-top" >
+              <div class="card-body">
+                <h5 class="card-title text-primary" id="itemname">{{item.name}}</h5>
+                <p class="card-text" id="itemdesc">{{item.description}}</p>
+              </div>
+            </div>
+          </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+        
+    </section>
+</div>
+{% endblock content %}
